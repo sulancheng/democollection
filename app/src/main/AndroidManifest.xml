@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.su.mygzzx">
+
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+
+    <application
+        android:allowBackup="true"
+        android:name="com.example.su.mygzzx.Myapplication"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".SkelActivity" />
+        <activity android:name=".completexfk.FlowActivity" />
+
+        <service
+            android:name=".xuanfochung.FloatWindowService"
+            android:enabled="true"
+            android:exported="true" />
+
+        <activity android:name=".horgridview.HorGridviewActivity" />
+        <activity android:name=".recycleview.RecycleActivity" />
+        <activity android:name=".piacasso.Main2Activity" />
+        <activity android:name=".asynctask.AsyncTaskAcitivty" />
+        <activity android:name=".rxjava.RxActivity" />
+        <activity android:name=".recycleview.GridLineActivity" />
+        <activity
+            android:name=".popowindow.PopuwindActivity"
+            android:windowSoftInputMode="adjustPan"></activity>
+        <activity android:name=".tablyout.TablyoutActivity"></activity>
+    </application>
+
+</manifest>

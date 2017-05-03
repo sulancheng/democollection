@@ -1,0 +1,17 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.su.mygzzx.tablyout.Fragmentone">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:id="@+id/textfrag"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textSize="24sp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="frag one" />
+
+</FrameLayout>

@@ -1,0 +1,2 @@
+include ':app', ':apps', ':MPChartLib', ':MPChartExample', ':ViewPagerIndicator_library', ':apprealshangcheng', ':banner', ':opendanmaku', ':okhttputils', ':FlycoTabLayout_Lib', ':FlycoTabltouyDemo', ':myokhttpgo', ':mylinedatasets', ':mygridviewtuola', ':jpushexample', ':LibMarsdaemon', ':DemoProcessMarsdaemon'
+include ':photofromlocal'

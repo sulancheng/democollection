@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/root"
+    android:layout_height="match_parent"
+    tools:context="com.example.su.mygzzx.popowindow.PopuwindActivity">
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="50dp">
+
+        <ImageButton
+            android:id="@+id/ib_sport_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:background="@drawable/historical_data" />
+
+        <TextView
+            android:id="@+id/tvtvtvtv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="jint"
+            android:textColor="#333333"
+            android:textSize="18dp" />
+
+        <ImageButton
+            android:id="@+id/ib_setting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/setting" />
+
+    </RelativeLayout>
+    <Button
+        android:id="@+id/more"
+        android:text="全屏"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <Button
+        android:id="@+id/morepop"
+        android:text="全屏pop"
+        android:onClick="morepoop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:layout_marginTop="180dp"
+        android:id="@+id/ed_email"
+        android:layout_marginLeft="15dp"
+        android:imeOptions="actionDone"
+        android:layout_marginRight="15dp"
+        android:layout_width="match_parent"
+        android:hint="邮箱"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

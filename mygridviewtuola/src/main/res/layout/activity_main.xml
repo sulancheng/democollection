@@ -1,0 +1,61 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_02"
+     >
+
+    <RelativeLayout
+        android:id="@+id/rl_strues"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_top_bar" >
+
+        <TextView
+            android:id="@+id/tv_mine"
+            style="@style/title_back"
+            android:drawableLeft="@drawable/tubiao_03" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            style="@style/title_text"
+            android:text="@string/home" />
+
+        <ImageView
+            android:id="@+id/iv_menu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/margin_5"
+            android:contentDescription="@string/hello_world"
+            android:padding="@dimen/padding_10"
+            android:scaleType="center"
+            android:src="@drawable/tubiao_05" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/ll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rl_strues"
+        android:layout_marginLeft="14dip"
+        android:layout_marginRight="14dip" >
+
+        <com.example.mygridviewtuola.DragGrid
+            android:id="@+id/gradview"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:gravity="center"
+            android:horizontalSpacing="14dip"
+            android:listSelector="@android:color/transparent"
+            android:longClickable="true"
+            android:numColumns="3"
+            android:scrollbars="vertical"
+            android:stretchMode="columnWidth"
+            android:verticalSpacing="14.0px" >
+        </com.example.mygridviewtuola.DragGrid>
+    </RelativeLayout>
+
+</RelativeLayout>
