@@ -122,7 +122,7 @@ public class FloatWindowSmallView extends LinearLayout {
      * 单击接口  *  * @author zhaokaiqiang  *
      */
     public interface OnClickListener {
-        public void click();
+         void click();
     }
 }
 

@@ -6,9 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 
-import com.example.su.mygzzx.popowindow.PopuwindActivity;
-import com.example.su.mygzzx.rxjava.RxActivity;
 import com.example.su.mygzzx.tablyout.TablyoutActivity;
+import com.example.su.mygzzx.xuanfochuangok.FolfchuActivity;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -61,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
         instance2.add(Calendar.DAY_OF_WEEK,x);
         Log.i("getmothtime",instance.getTime()+"===two="+instance2.getTime());
 
-        startActivity(new Intent(MainActivity.this,RxActivity.class));
+        startActivity(new Intent(MainActivity.this,FolfchuActivity.class));
     }
     public void tablyout(View view){
         startActivity(new Intent(this, TablyoutActivity.class));

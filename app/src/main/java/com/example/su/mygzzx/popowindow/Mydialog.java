@@ -56,7 +56,7 @@ public class Mydialog extends Dialog implements AdapterView.OnItemClickListener 
         /*
 * 将对话框的大小按屏幕大小的百分比设置
 */
-//        WindowManager m = getWindow().getWindowManager();
+        WindowManager m = getWindow().getWindowManager();
 //        Display d = m.getDefaultDisplay(); // 获取屏幕宽、高用
 //        WindowManager.LayoutParams p = getWindow().getAttributes(); // 获取对话框当前的参数值
 //        p.height = (int) (d.getHeight() * 0.6); // 高度设置为屏幕的0.6

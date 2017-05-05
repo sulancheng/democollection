@@ -12,7 +12,6 @@ import android.provider.Settings;
 import android.util.Log;
 import android.view.View;
 
-import com.example.su.mygzzx.rxjava.RxActivity;
 import com.example.su.mygzzx.xuanfochung.FloatWindowManager;
 import com.example.su.mygzzx.xuanfochung.FloatWindowService;
 import com.example.su.mygzzx.xuanfochung.FloatWindowSmallView;
@@ -29,7 +28,20 @@ public class SkelActivity extends Activity {
         context = this;
         requestMultiplePermissions();
         floatWindowManager = FloatWindowManager.getInstance(context);
-       // show();
+        if (Build.VERSION.SDK_INT >= 23) {
+            if(!Settings.canDrawOverlays(this)) {
+                Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION);
+                startActivity(intent);
+                return;
+            } else {
+                //绘ui代码, 这里说明6.0系统已经有权限了
+                show();
+            }
+        } else {
+            //绘ui代码,这里android6.0以下的系统直接绘出即可
+            show();
+        }
+
     }
 
     /**
@@ -111,7 +123,7 @@ public class SkelActivity extends Activity {
     }
 
     public void rxtiaozuan(View  view){
-        startActivity(new Intent(SkelActivity.this, RxActivity.class));
+        //startActivity(new Intent(SkelActivity.this, RxActivity.class));
     }
 }
 
