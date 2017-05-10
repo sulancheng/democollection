@@ -5,12 +5,14 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Rect;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 
 import com.example.su.mygzzx.xuanfochung.FloatWindowManager;
 import com.example.su.mygzzx.xuanfochung.FloatWindowService;
@@ -19,11 +21,13 @@ import com.example.su.mygzzx.xuanfochung.FloatWindowSmallView;
 public class SkelActivity extends Activity {
     private FloatWindowManager floatWindowManager;
     private Context context;
+    private Button rxxiao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_skel);
+        rxxiao = (Button) findViewById(R.id.rxxiao);
         //失败
         context = this;
         requestMultiplePermissions();
@@ -35,13 +39,49 @@ public class SkelActivity extends Activity {
                 return;
             } else {
                 //绘ui代码, 这里说明6.0系统已经有权限了
-                show();
+                //show();
             }
         } else {
             //绘ui代码,这里android6.0以下的系统直接绘出即可
-            show();
+           //show();
         }
+        //LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams)rxxiao.getLayoutParams();
+        //layoutParams.leftMargin = 30;
+        //rxxiao.setLayoutParams(layoutParams);
+        rxxiao.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                zuanbiaozhi();
+            }
+        });
 
+    }
+
+    private void zuanbiaozhi() {
+        Log.i("locatopn "," l= "+rxxiao.getLeft()+" r ="+rxxiao.getRight()+" t= "+rxxiao.getTop()+" b = "+rxxiao.getBottom());
+        //l= 0 r =360 t= 1200 b = 1380
+        int[] locate = new int[2];
+        rxxiao.getLocationOnScreen(locate);
+        int lx = locate[0];
+        int tx = locate[1];
+        if (lx == 0 || lx == 0) {
+//            Rect rect = new Rect();
+//            rxxiao.getGlobalVisibleRect(rect);
+//            lx = rect.left;
+//            lx = rect.top;
+        }
+        int rx = lx + rxxiao.getWidth();
+        int bx = tx + rxxiao.getHeight();
+
+        Log.i("locatopn "," l1= "+lx+" r1 ="+rx+" t1 = "+tx+" b1 = "+bx);
+        //l1= 0 r1 =360 t1 = 1272 b1 = 1452
+        Log.i("locatopn "," with = "+rxxiao.getWidth()+" heigth = "+rxxiao.getHeight());
+
+        Rect rect = new Rect();
+        // 获取root在窗体的可视区域
+        rxxiao.getWindowVisibleDisplayFrame(rect);
+        Log.i("locatopn "," l2= "+rect.left+" r2 ="+rect.right+" t2 = "+rect.top+" b2= "+rect.bottom);
+        //l2= 0 r2 =1080 t2 = 72 b2= 1920
     }
 
     /**

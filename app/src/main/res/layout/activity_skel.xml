@@ -5,15 +5,21 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="com.example.su.mygzzx.SkelActivity">
-    <com.example.su.mygzzx.ui.SkyWheel
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        >
-    </com.example.su.mygzzx.ui.SkyWheel>
+        android:layout_height="400dp">
+        <com.example.su.mygzzx.ui.SkyWheel
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            >
+        </com.example.su.mygzzx.ui.SkyWheel>
+    </LinearLayout>
     <Button
+        android:id="@+id/rxxiao"
         android:onClick="rxtiaozuan"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:text="location"
+        android:layout_width="120dp"
+        android:layout_height="60dp" />
     <TextView
         android:text="opop"
         android:layout_gravity="right"

@@ -14,7 +14,6 @@ import android.view.View;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.FrameLayout;
 
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -52,6 +51,9 @@ public class SkyWheel extends FrameLayout {
         mLinePaint.setColor(Color.GRAY);
         mLinePaint.setStyle(Paint.Style.STROKE);
         mLinePaint.setStrokeWidth(1);
+
+
+        //layoutParams.setMargins(80, 55, 0, 0);// 通过自定义坐标来放置你的控件
         //手势识别器
         mOnGestureListener = new GestureDetector(context, new GestureDetector.OnGestureListener() {
             @Override
@@ -114,7 +116,6 @@ public class SkyWheel extends FrameLayout {
                        */
             @Override
             public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
-
                 //手指离开假看做开始坐标
                 float startX = e2.getX();
                 float startY = e2.getY();

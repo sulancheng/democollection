@@ -55,7 +55,7 @@ public class FloatWindowSmallView extends LinearLayout {
         smallWindowParams.width = viewWidth;
         smallWindowParams.height = viewHeight;
         smallWindowParams.x = ScreenUtils.getScreenWidth(context);
-        smallWindowParams.y = ScreenUtils.getScreenHeight(context) / 2;
+        smallWindowParams.y = ScreenUtils.getScreenHeight(context) / 2;//初始化位置
     }
 
     @SuppressLint("ClickableViewAccessibility")
