@@ -15,5 +15,6 @@ public class CalendTestActivity extends AppCompatActivity {
         DecimalFormat df = new DecimalFormat("0.00");
         String format = df.format(1000000 / 1000.0 / 60.0 / 60);
         Log.i(TAG,format);//答案是正确的  保留精度的 小时 值。
+        //startActivity(new Intent(CalendTestActivity.this, XmlhtmlActivity.class));
     }
 }
