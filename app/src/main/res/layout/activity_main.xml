@@ -5,74 +5,17 @@
     android:layout_height="match_parent"
     android:orientation="horizontal"
     tools:context="com.example.su.mygzzx.MainActivity">
-    <!--<RelativeLayout-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_marginLeft="6dp"-->
-        <!--android:layout_marginTop="12dp"-->
-        <!--android:layout_height="match_parent">-->
-        <!--<TextView-->
-            <!--android:id="@+id/text01"-->
-            <!--android:text="no1"-->
-            <!--android:gravity="center"-->
-            <!--android:textSize="18sp"-->
-            <!--android:background="@drawable/back"-->
-            <!--android:layout_width="60dp"-->
-            <!--android:layout_height="wrap_content" />-->
-
-        <!--<LinearLayout-->
-            <!--android:id="@+id/text02"-->
-            <!--android:layout_toRightOf="@+id/text01"-->
-            <!--android:layout_alignTop="@+id/text01"-->
-            <!--android:layout_width="80dp"-->
-            <!--android:orientation="vertical"-->
-            <!--android:textSize="18sp"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:background="@drawable/back"-->
-            <!--&gt;-->
-            <!--<TextView-->
-                <!--android:textSize="18sp"-->
-                <!--android:layout_gravity="center"-->
-                <!--android:text="nihao"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content" />-->
-            <!--<TextView-->
-                <!--android:textSize="18sp"-->
-                <!--android:layout_gravity="center"-->
-                <!--android:text="nihao"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content" />-->
-            <!--<TextView-->
-                <!--android:textSize="18sp"-->
-                <!--android:layout_gravity="center"-->
-                <!--android:text="nihao"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content" />-->
-            <!--<TextView-->
-                <!--android:textSize="18sp"-->
-                <!--android:layout_gravity="center"-->
-                <!--android:text="nihao"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content" />-->
-            <!--<TextView-->
-                <!--android:textSize="18sp"-->
-                <!--android:layout_gravity="center"-->
-                <!--android:text="nihao"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content" />-->
-            <!--<TextView-->
-                <!--android:textSize="18sp"-->
-                <!--android:layout_gravity="center"-->
-                <!--android:text="nihao"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content" />-->
-            <!--<TextView-->
-                <!--android:textSize="18sp"-->
-                <!--android:layout_gravity="center"-->
-                <!--android:text="nihao"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content" />-->
-        <!--</LinearLayout>-->
-    <!--</RelativeLayout>-->
+    <GridView
+        android:id="@+id/jggridview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:horizontalSpacing="0.0dip"
+        android:listSelector="@null"
+        android:numColumns="3"
+        android:scrollbars="none"
+        android:stretchMode="columnWidth"
+        android:verticalSpacing="10dip" >
+    </GridView>
     <Button
         android:text="Tablyout"
         android:onClick="tablyout"

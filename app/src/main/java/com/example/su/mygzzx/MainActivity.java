@@ -5,8 +5,13 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.BaseAdapter;
+import android.widget.GridView;
+import android.widget.TextView;
 
-import com.example.su.mygzzx.tablyout.TablyoutActivity;
+import com.example.su.mygzzx.recycleview.RecycleActivity;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -20,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        init();
         TimeZone timeZoneSH = TimeZone.getTimeZone("Asia/Shanghai");
         TimeZone timeZoneNY = TimeZone.getTimeZone("America/New_York");
         SimpleDateFormat inputFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -39,6 +45,47 @@ public class MainActivity extends AppCompatActivity {
         //startActivity(new Intent(this,RecycleActivity.class));
         getmothtime();
     }
+
+    private void init() {
+        GridView jggridview = (GridView) findViewById(R.id.jggridview);
+        int [] aa ={1,2,3,4,5,6,7,8,9,0};
+        jggridview.setAdapter(new Gradadapter(aa));
+
+        jggridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Log.i("onItemClick"," i ="+i +" l ="+l);
+            }
+        });
+    }
+class Gradadapter extends BaseAdapter{
+    int[] bb ;
+    public Gradadapter(int [] aa){
+        this.bb = aa;
+    }
+    @Override
+    public int getCount() {
+        return bb.length;
+    }
+
+    @Override
+    public Object getItem(int i) {
+        return bb[i];
+    }
+
+    @Override
+    public long getItemId(int i) {
+        return i;
+    }
+
+    @Override
+    public View getView(int i, View convertView, ViewGroup viewGroup) {
+        convertView = View.inflate(MainActivity.this, R.layout.graditem,null);
+        TextView text = (TextView) convertView.findViewById(R.id.text);
+        text.setText(bb[i]+"");
+        return convertView;
+    }
+}
     public void getmothtime(){
         TimeZone timeZoneSH = TimeZone.getTimeZone("Asia/Shanghai");
         Calendar instance = Calendar.getInstance();
@@ -59,9 +106,9 @@ public class MainActivity extends AppCompatActivity {
         instance2.add(Calendar.DAY_OF_WEEK,x);
         Log.i("getmothtime",instance.getTime()+"===two="+instance2.getTime());
 
-        startActivity(new Intent(MainActivity.this,SkelActivity.class));
+        //startActivity(new Intent(MainActivity.this,SkelActivity.class));
     }
     public void tablyout(View view){
-        startActivity(new Intent(this, TablyoutActivity.class));
+        startActivity(new Intent(this, RecycleActivity.class));
     }
 }
