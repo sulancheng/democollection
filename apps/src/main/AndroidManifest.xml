@@ -21,6 +21,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".calendaranddaojshi.Daojs2Act"></activity>
+        <activity android:name="com.example.jackhsueh.ble_ota.calendaranddaojshi.DaoJishiActivity"></activity>
+        <activity android:name="com.example.jackhsueh.ble_ota.vitamiohs.VitamiohsActivity"></activity>
     </application>
 
 </manifest>

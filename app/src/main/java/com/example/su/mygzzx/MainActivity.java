@@ -28,20 +28,36 @@ public class MainActivity extends AppCompatActivity {
         init();
         TimeZone timeZoneSH = TimeZone.getTimeZone("Asia/Shanghai");
         TimeZone timeZoneNY = TimeZone.getTimeZone("America/New_York");
+        TimeZone timeZoneNZ = TimeZone.getTimeZone("UTC");
         SimpleDateFormat inputFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        inputFormat.setTimeZone(timeZoneSH);
+        //inputFormat.setTimeZone(timeZoneSH);
         Date date1 = null;
         try {
             date1 = inputFormat.parse("1993-04-25 06:06:06");
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        //不加时区
+        //不加时区  重要date.getime是跟时区没有任何关系的。
         Log.i("MainActivitytime",date1+"===geshihua="+date1.getTime());//Sun Apr 25 06:06:06 GMT+08:00 1993===geshihua=735689166000
         Log.i("MainActivitytime",inputFormat.format(date1)+"===geshihua=");// 1993-04-25 06:06:06===geshihua=
-        inputFormat.setTimeZone(timeZoneNY);
+        //inputFormat.setTimeZone(timeZoneNY);
+        //Log.i("MainActivitytime2",inputFormat.format(date1)+"===geshihua2="+date1.getTime());//: 1993-04-24 18:06:06===geshihua2=1993-04-24 18:06:06
 
-        Log.i("MainActivitytime2",inputFormat.format(date1)+"===geshihua2="+inputFormat.format(date1));//: 1993-04-24 18:06:06===geshihua2=1993-04-24 18:06:06
+        Calendar instance = Calendar.getInstance();
+        instance.setTime(date1);//735689166000
+        //one:这里是同一个时间戳，设置成UTC的时区，打印的时间字符串Sat Apr 24 22:06:06 UTC 1993============735689166000
+        //instance.setTimeZone(timeZoneNZ);
+        TimeZone atDefault = TimeZone.getDefault();
+        TimeZone.setDefault(timeZoneNZ);
+        Log.i("MainActivitytime3",instance.getTime()+"============"+instance.getTime().getTime());
+        TimeZone.setDefault(atDefault);
+        //two：这里是做了偏移的时间戳，设置成默认时区 time = 735689166000 rawoffset=0===Sat Apr 24 22:06:06 UTC 1993
+        int rawOffsetfset = TimeZone.getDefault().getRawOffset();//获取当前时区到UTC的时间差。
+        long time = date1.getTime();
+        Date date = new Date(time - rawOffsetfset);
+//        //TimeZone.setDefault(timeZoneSH);
+        Log.i("MainActivitytime4","time = "+time +" rawoffset="+ rawOffsetfset +"==="+date);
+
         //startActivity(new Intent(this,RecycleActivity.class));
         getmothtime();
     }
