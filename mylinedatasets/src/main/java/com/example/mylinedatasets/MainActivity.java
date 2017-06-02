@@ -50,6 +50,7 @@ public class MainActivity extends Activity implements OnChartValueSelectedListen
         mChart.setSelected(false);
 
         // mMonthChart.setVisibleXRangeMaximum();设置一页显示的x坐标的个数。
+        //moveViewToX//移动到想要显示的地方
         // mChart.setHighlightPerDragEnabled(true);
 
         // if disabled, scaling can be done on x- and y-axis separately
