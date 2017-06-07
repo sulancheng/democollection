@@ -6,7 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.TextView;
@@ -67,12 +66,15 @@ public class MainActivity extends AppCompatActivity {
         int [] aa ={1,2,3,4,5,6,7,8,9,0};
         jggridview.setAdapter(new Gradadapter(aa));
 
-        jggridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Log.i("onItemClick"," i ="+i +" l ="+l);
-            }
-        });
+//        jggridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+//                Log.i("onItemClick"," i ="+i +" l ="+l);
+//            }
+//        });
+        jggridview.setOnItemClickListener((a,v,i,l)->Log.i("onItemClick"," i ="+i +" l ="+l)
+        );
+
     }
 class Gradadapter extends BaseAdapter{
     int[] bb ;

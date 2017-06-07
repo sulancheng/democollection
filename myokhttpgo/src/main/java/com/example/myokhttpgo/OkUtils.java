@@ -104,6 +104,7 @@ public class OkUtils {
     public static void requsetJson(String url, Context mcontext, String json, MyResponse myresponse) {
         re = myresponse;
         OkGo.post(url)//
+               // .connTimeOut()
                 .tag(mcontext)//
 //	.params("param1", "paramValue1")//  这里不要使用params，upJson 与 params 是互斥的，只有 upJson 的数据会被上传
                 .upJson(json)//setCertificates
