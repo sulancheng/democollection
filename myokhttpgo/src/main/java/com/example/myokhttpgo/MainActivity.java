@@ -2,11 +2,8 @@ package com.example.myokhttpgo;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.util.Log;
-import android.widget.Toast;
 
 import com.example.myokhttpgo.bean.Login;
-import com.example.myokhttpgo.bean.ResponseEntity;
 
 import java.security.MessageDigest;
 
@@ -25,20 +22,20 @@ public class MainActivity extends Activity {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        OkUtils.login1(this, login, new OkUtils.MyResponse() {
-            @Override
-            public void expResponse(ResponseEntity myresponse) {
-                if ("001".equals(myresponse.getStateCode())) {
-                    Toast.makeText(MainActivity.this,"登录成功！！！",Toast.LENGTH_LONG).show();
-                    Log.i("checkresponse", " s = " + myresponse.getData() + "message = " + myresponse.getMsg());
-                } else {
-                    Toast.makeText(MainActivity.this,"登录失败！！！",Toast.LENGTH_LONG).show();
-                }
-            }
-        });
-        OkUtils.login1(this,login,(a)->{
-
-        });
+//        OkUtils.login1(this, login, new OkUtils.MyResponse() {
+//            @Override
+//            public void expResponse(ResponseEntity myresponse) {
+//                if ("001".equals(myresponse.getStateCode())) {
+//                    Toast.makeText(MainActivity.this,"登录成功！！！",Toast.LENGTH_LONG).show();
+//                    Log.i("checkresponse", " s = " + myresponse.getData() + "message = " + myresponse.getMsg());
+//                } else {
+//                    Toast.makeText(MainActivity.this,"登录失败！！！",Toast.LENGTH_LONG).show();
+//                }
+//            }
+//        });
+//        OkUtils.login1(this,login,(a)->{
+//
+//        });
 
 //        Map<String,String> testmap = new HashMap<>();
 //        new JSONObject(testmap);
