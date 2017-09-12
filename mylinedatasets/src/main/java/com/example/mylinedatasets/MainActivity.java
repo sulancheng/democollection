@@ -52,6 +52,7 @@ public class MainActivity extends Activity implements OnChartValueSelectedListen
         // mMonthChart.setVisibleXRangeMaximum();设置一页显示的x坐标的个数。
         //moveViewToX//移动到想要显示的地方
         // mChart.setHighlightPerDragEnabled(true);
+        //或者用缩放的功能
 //        chartline.zoom(2, 1f, chartline.getWidth(), 0);  //第一参数一显示一个值  柱形图的粗细， 第三参数显示的是柱形图宽度。
 //        chartline.animateX(1200); // 立即执行的动画,x轴
 //        chartline.moveViewToX(testDatas.size());//移动到自己想要的位置。
