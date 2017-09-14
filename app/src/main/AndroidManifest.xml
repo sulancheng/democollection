@@ -31,7 +31,9 @@
         <activity android:name=".recycleview.RecycleActivity" />
         <activity android:name=".piacasso.Main2Activity" />
         <activity android:name=".asynctask.AsyncTaskAcitivty" />
-        <activity android:name=".rxjava.RxActivity" />
+        <activity android:name=".rxjava.RxActivity">
+
+        </activity>
         <activity android:name=".recycleview.GridLineActivity" />
         <activity
             android:name=".popowindow.PopuwindActivity"

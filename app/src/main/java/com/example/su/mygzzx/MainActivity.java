@@ -10,7 +10,7 @@ import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.TextView;
 
-import com.example.su.mygzzx.recycleview.RecycleActivity;
+import com.example.su.mygzzx.horgridview.HorGridviewActivity;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -127,6 +127,7 @@ class Gradadapter extends BaseAdapter{
         //startActivity(new Intent(MainActivity.this,SkelActivity.class));
     }
     public void tablyout(View view){
-        startActivity(new Intent(this, RecycleActivity.class));
+        startActivity(new Intent(this, HorGridviewActivity.class));
+//        startActivity(new Intent(this, RxActivity.class));
     }
 }

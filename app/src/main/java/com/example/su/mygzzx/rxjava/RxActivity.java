@@ -96,23 +96,26 @@ public class RxActivity extends Activity {
         //注册后就会开始调用call()中的观察者执行的方法 onNext() onCompleted()等
        // observable.subscribe(observer);
 
-
-        timer();
-
     }
 
     private void init() {
         //登陆
         RxView.clicks(findViewById(R.id.bt_rx_bt))
                 .throttleFirst(500,TimeUnit.MILLISECONDS)//过滤点击事件，500ms只接受一次
+                .doOnNext(a->{
+                    Log.i("rxandroidmy","点击事件");
+                })
                 .concatMap(a ->text1(2,3,""))
                 .filter((resulet) -> {//过滤事件。
-                    return resulet>5;
+                    return resulet>4;
                 })
                 .doOnNext(param -> {
                     logtest("结果大于5");
+                    timer();
                 })
                 .subscribe();
+
+
     }
 
     private void mapDemo() {
@@ -214,7 +217,7 @@ public class RxActivity extends Activity {
                // .doOnNext(a ->logtest("nihao"))
                 .flatMap(a ->speak("今天RX入门！！！！！"))
                 .doOnComplete(() ->logtest("我完成了speak"))//在其之上的flatMap 都完成了  就会调用。
-                .doOnNext(a ->logtest(a))
+                //.doOnNext(a ->logtest(a))
                 .flatMap(a ->text1(3,7,"我成功了"))
                 .filter((resulet) -> {//过滤事件。
                     return resulet>5;
@@ -259,22 +262,24 @@ public class RxActivity extends Activity {
         Toast.makeText(this,ss,Toast.LENGTH_SHORT).show();
     }
     public Observable<Integer> text1(int a,int b,final String yuju){
-        int abc = a+b;
+
         return Observable.create(new ObservableOnSubscribe<Integer>() {
             @Override
             public void subscribe(ObservableEmitter<Integer> e) throws Exception {
+                int abc = a+b;
                 e.onNext(abc);
                 e.onComplete();
                // e.onError(new Throwable("cuolema"));
             }
         });
     }
+
     public Observable<String> speak(String speak){
         return Observable.create(new ObservableOnSubscribe<String>() {
             @Override
             public void subscribe(ObservableEmitter<String> e) throws Exception {
                 e.onNext(speak);
-//                Thread.sleep(2000);
+                //Thread.sleep(2000);
                 e.onComplete();
             }
         })
