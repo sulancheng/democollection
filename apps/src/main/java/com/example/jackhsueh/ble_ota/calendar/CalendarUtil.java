@@ -533,4 +533,20 @@ public class CalendarUtil {
     public boolean isLeapYear2(int year) {
         return new GregorianCalendar().isLeapYear(year);
     }
+    //时间之差
+    public static void shijiacha(){
+        DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        try {
+            Date d1 = df.parse("2006-05-26 12:00:00");
+            Date d2 = df.parse("2006-07-02 11:20:00");
+            long diff = d1.getTime() - d2.getTime();//这样得到的差值是微秒级别
+            long days = diff / (1000 * 60 * 60 * 24);
+            long hours = (diff-days*(1000 * 60 * 60 * 24))/(1000* 60 * 60);
+            long minutes = (diff-days*(1000 * 60 * 60 * 24)-hours*(1000* 60 * 60))/(1000* 60);
+            System.out.println(""+days+"天"+hours+"小时"+minutes+"分");
+        }
+        catch (Exception e)
+        {
+        }
+    }
 }

@@ -1,15 +1,15 @@
 package com.example.jackhsueh.ble_ota;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
 import com.example.jackhsueh.ble_ota.vitamiohs.VitamiohsActivity;
 
 import java.text.DecimalFormat;
 
-public class CalendTestActivity extends AppCompatActivity {
+public class CalendTestActivity extends Activity {
     private String TAG= CalendTestActivity.class.getSimpleName();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
