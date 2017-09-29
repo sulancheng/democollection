@@ -38,7 +38,6 @@
         <activity
             android:name=".popowindow.PopuwindActivity"
             android:windowSoftInputMode="adjustPan"></activity>
-        <activity android:name=".tablyout.TablyoutActivity"></activity>
         <activity android:name=".xuanfochuangok.FolfchuActivity"></activity>
         <activity android:name=".xuanfochuangok.donghuaActivity"></activity>
     </application>
