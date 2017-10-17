@@ -4,6 +4,10 @@ import android.app.Activity;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.su.mygzzx.R;
@@ -23,6 +27,8 @@ import io.reactivex.functions.Function;
 import io.reactivex.schedulers.Schedulers;
 
 public class RxActivity extends Activity {
+    Button lamrd;
+    ListView lv_lamrd;
     private String TAG= "RxActivity";
 //设置观察者和发布者代码所要运行的线程后注册观察者
   /*  observable.subscribeOn(Schedulers.immediate())//在当前线程执行subscribe()方法
@@ -33,6 +39,26 @@ public class RxActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rx);
         init();
+        //关于lamda的简单应用
+        lamrd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+        lamrd.setOnClickListener(a->
+             a.setVisibility(View.GONE)
+        );
+        lv_lamrd.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+            }
+        });
+        lv_lamrd.setOnItemClickListener((p,v,po,i)->{
+
+        });
+
         //创建一个被观察者(发布者)
 //        Observable observable = Observable.create(new Observable.OnSubscribe<Integer>() {
 //            @Override
