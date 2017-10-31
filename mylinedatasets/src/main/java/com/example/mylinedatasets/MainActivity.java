@@ -194,6 +194,9 @@ public class MainActivity extends Activity implements OnChartValueSelectedListen
         set4.setDrawHighlightIndicators(true);//不要十字架
         set4.setHighLightColor(Color.WHITE); // 高亮的线的颜色
         set4.setHighlightLineWidth(3f);
+        //dataSet.setMode(LineDataSet.Mode.CUBIC_BEZIER);//变得圆滑
+        //dataSet.setMode(LineDataSet.Mode.LINEAR);//正常折现
+        //dataSet.setMode(LineDataSet.Mode.HORIZONTAL_BEZIER);//正常折现
         dataSets.add(set4);
 
         set5 = new LineDataSet(yVals5, "DataSet 5");

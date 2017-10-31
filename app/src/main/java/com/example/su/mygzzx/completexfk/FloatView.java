@@ -97,11 +97,13 @@ public class FloatView extends ImageView{
 				mTouchY = event.getY();
 				startX = (int) event.getRawX();
 				startY = (int) event.getRawY();
+				Log.i("tag", "mTouchX="+mTouchX+" mTouchY+"+mTouchY);
 				break;
 				
 			}
 			case MotionEvent.ACTION_MOVE:
 			{
+				Log.i("tag", "getLeft="+getLeft()+" getTop="+getTop()+" y="+y+" startY="+startY);
 				updateViewPosition();
 				break;
 			}
