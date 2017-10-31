@@ -13,7 +13,7 @@ import android.widget.TextView;
 import com.example.su.mygzzx.R;
 
 import java.util.ArrayList;
-
+//girdview横向布局
 public class HorGridviewActivity extends AppCompatActivity {
     private GridView gridView;
     private ArrayList<String> list = new ArrayList<>();
