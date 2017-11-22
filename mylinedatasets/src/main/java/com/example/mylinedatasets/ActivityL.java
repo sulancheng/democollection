@@ -34,6 +34,7 @@ public class ActivityL extends AppCompatActivity {
         //set1.setBarSpacePercent(10f); 柱形图设置间隔
         //mWidth = mDayChart.getWidth();
         //chartline.zoom(4, 1f, mWidth, 0);
+        //chartline.setVisibleXRangeMaximum();//设置最大的课件数据，也可以使得统计图滑动
         chartline.zoom(4, 1f, 2, 0);//第一参数一显示一个值  柱形图的粗细， 第三参数显示的是柱形图宽度。
 
 

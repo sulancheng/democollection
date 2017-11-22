@@ -1,17 +1,16 @@
 package com.example.su.mygzzx.rxjava;
 
-import android.app.Activity;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.su.mygzzx.R;
 import com.jakewharton.rxbinding2.view.RxView;
+import com.trello.rxlifecycle2.android.ActivityEvent;
+import com.trello.rxlifecycle2.components.support.RxAppCompatActivity;
 
 import java.util.concurrent.TimeUnit;
 
@@ -26,7 +25,7 @@ import io.reactivex.functions.Consumer;
 import io.reactivex.functions.Function;
 import io.reactivex.schedulers.Schedulers;
 
-public class RxActivity extends Activity {
+public class RxActivity extends RxAppCompatActivity {
     Button lamrd;
     ListView lv_lamrd;
     private String TAG= "RxActivity";
@@ -40,24 +39,24 @@ public class RxActivity extends Activity {
         setContentView(R.layout.activity_rx);
         init();
         //关于lamda的简单应用
-        lamrd.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
-        lamrd.setOnClickListener(a->
-             a.setVisibility(View.GONE)
-        );
-        lv_lamrd.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-            }
-        });
-        lv_lamrd.setOnItemClickListener((p,v,po,i)->{
-
-        });
+//        lamrd.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//            }
+//        });
+//        lamrd.setOnClickListener(a->
+//             a.setVisibility(View.GONE)
+//        );
+//        lv_lamrd.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//
+//            }
+//        });
+//        lv_lamrd.setOnItemClickListener((p,v,po,i)->{
+//
+//        });
 
         //创建一个被观察者(发布者)
 //        Observable observable = Observable.create(new Observable.OnSubscribe<Integer>() {
@@ -120,7 +119,7 @@ public class RxActivity extends Activity {
             }
         });
         //注册后就会开始调用call()中的观察者执行的方法 onNext() onCompleted()等
-       // observable.subscribe(observer);
+        observable.subscribe(observer);
 
     }
 
@@ -139,6 +138,7 @@ public class RxActivity extends Activity {
                     logtest("结果大于5");
                     timer();
                 })
+                .compose(this.<Object>bindUntilEvent(ActivityEvent.DESTROY))
                 .subscribe();
 
 
@@ -244,7 +244,7 @@ public class RxActivity extends Activity {
                 .flatMap(a ->speak("今天RX入门！！！！！"))
                 .doOnComplete(() ->logtest("我完成了speak"))//在其之上的flatMap 都完成了  就会调用。
                 //.doOnNext(a ->logtest(a))
-                .flatMap(a ->text1(3,7,"我成功了"))
+                .flatMap(a ->text1(3,7,"我成功了"+a))
                 .filter((resulet) -> {//过滤事件。
                     return resulet>5;
                 })
@@ -258,6 +258,7 @@ public class RxActivity extends Activity {
 //                        Log.e(TAG,"Send error : " + throwable.toString() + " and clear cmd queue");
 //                    }
 //                })
+                .compose(this.<Object>bindUntilEvent(ActivityEvent.DESTROY))
                 .subscribe(new Observer<Object>() {
                     @Override
                     public void onSubscribe(Disposable d) {
