@@ -19,6 +19,7 @@ import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Action;
 import io.reactivex.functions.Consumer;
@@ -120,6 +121,12 @@ public class RxActivity extends RxAppCompatActivity {
         });
         //注册后就会开始调用call()中的观察者执行的方法 onNext() onCompleted()等
         observable.subscribe(observer);
+        observable.subscribe(new Consumer<Integer>() {
+            @Override
+            public void accept(@NonNull Integer integer) throws Exception {
+
+            }
+        });
 
     }
 
@@ -236,6 +243,15 @@ public class RxActivity extends RxAppCompatActivity {
                 });
     }
     //成功
+//    通过 subscribeOn 和 observeOn 两个操作符能改变线程的执行状态。
+//    subscribeOn 在操作链上最好只调用一次，如果多次调用，依然只有第一次生效
+//    subscribeOn 用来指定 observable 在哪个线程上创建执行操作，如果想要通过observables 发射事件给Android的View，那么需要保证订阅者在Android的UI线程上执行操作。
+//    另一方面， observeOn 可以在链上调用多次，它主要是用来指定下一个操作在哪一个线程上执行
+//    主要用到三种schedulers：
+//            Schedulers.io(): 适合I/O类型的操作，比如网络请求，磁盘操作。
+//            Schedulers.computation(): 适合计算任务，比如事件循环或者回调处理。
+//            AndroidSchedulers.mainThread() : 回调主线程，比如UI操作。
+
     public void timer(){
         Observable.just(true)
                 //.timer(2000,TimeUnit.MILLISECONDS)
